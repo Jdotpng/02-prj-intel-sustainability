@@ -1,1 +1,318 @@
-/* Add your CSS here */
+/* ========== Hero Section ========== */
+/* Intel blue gradient background for hero */
+.hero {
+  /* Only Intel blue gradient */
+  background: linear-gradient(90deg, #0068b5 0%, #0068b5 100%);
+  padding: 40px 0 24px 0;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Intel logo at top-left */
+nav .logo {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  width: 110px;
+  background: none;
+  margin: 0;
+  z-index: 2;
+}
+
+/* Center hero content */
+.hero-content {
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Use Google Fonts for Intel-like style */
+body {
+  /* Use Roboto for body text, fallback to Arial and Segoe UI */
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+
+/* Headline styling */
+.hero-content h1 {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; /* Use Montserrat for headline */
+  font-size: 3.2rem; /* Larger font for Intel-like look */
+  margin: 1.2em 0 0.3em 0;
+  color: #fff; /* White text */
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,104,181,0.18);
+  text-transform: uppercase;
+  text-align: center; /* Center the headline text */ /* Added for centering the headline */
+}
+
+/* Subheading styling */
+.hero-subheading {
+  font-size: 1.3rem;
+  color: #fff; /* White text */
+  margin-bottom: 1em;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Hero paragraph styling */
+.hero-content p {
+  color: #fff; /* White text */
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Timeline container styles */
+.timeline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 28px;
+  overflow-x: auto;
+  /* Set width for exactly 4 cards + 3 gaps + left/right padding */
+  width: calc(4 * 300px + 3 * 28px + 2 * 32px); /* 4 cards, 3 gaps, 32px padding each side */
+  max-width: 100vw;
+  padding: 40px 32px 32px 32px;
+  background: #fff;
+  scroll-behavior: smooth;
+  border-top: 2px solid #0068b5;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  margin: 0 auto;
+  /* --- Scroll Snap for smooth horizontal navigation --- */
+  scroll-snap-type: x mandatory;
+}
+
+/* Card styles */
+.card {
+  /* Each card takes up about 1/4 of the row minus gaps */
+  flex: 0 0 300px; /* 4 cards per row, 3 gaps */
+  max-width: 300px;
+  min-width: 220px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,104,181,0.08);
+  padding: 28px 18px 18px 18px;
+  margin: 0 0 16px 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  position: relative;
+  background: #fff; /* White background */
+  border: 1.5px solid #0068b5; /* Intel blue border */
+  scroll-snap-align: start;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,104,181,0.12);
+  border-color: #0068b5;
+  z-index: 2;
+}
+
+/* Card image styling */
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 16px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,104,181,0.06);
+  background: #fff;
+  display: block;
+}
+
+/* Card text styling: make all card text white for better contrast */
+.card h2 {
+  font-size: 1.2rem;
+  color: #fff; /* White text */
+  margin: 0.5em 0 0 0;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0.3em 0 0.7em 0;
+  color: #fff; /* White text */
+  font-weight: 500;
+}
+
+.card p {
+  font-size: 0.98rem;
+  color: #fff; /* White text for description */
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* Card Details Reveal on Hover */
+.card-img-container {
+  position: relative;
+  width: 100%;
+}
+
+.card-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 104, 181, 0.95); /* Intel blue, mostly opaque */
+  color: #fff; /* White text */
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 18px 12px;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.card-img-container:hover .card-text {
+  opacity: 1;
+}
+
+.card-text h2,
+.card-text h3,
+.card-text p {
+  color: #fff; /* White text */
+  margin: 0.3em 0;
+}
+
+/* Hide card text by default in card layout */
+.card > .card-text {
+  display: none;
+}
+
+/* Intel Branding Colors */
+.intel-blue {
+  background: #0068b5;
+  border: 1.5px solid #0068b5;
+  position: relative;
+}
+.intel-blue::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: #0068b5;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .card {
+    max-width: 220px;
+    min-width: 160px;
+    flex: 0 0 calc((100% - 3 * 20px) / 4);
+  }
+  .timeline {
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Fix hero section for mobile */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 18px 6px 10px 6px; /* Reduce and balance padding for mobile */
+    position: relative;
+    min-height: unset;
+    border: none;               /* Remove any border for mobile */
+    box-shadow: none;           /* Remove any shadow for mobile */
+  }
+  nav .logo {
+    position: static;               /* Remove absolute positioning */
+    display: block;                 /* Make logo a block element */
+    margin: 0 auto 12px auto;       /* Center logo and add space below */
+    width: 70px;                    /* Smaller logo for mobile */
+    max-width: 100vw;
+    z-index: 1;
+  }
+  .hero-content {
+    margin-top: 0;                  /* No extra margin needed */
+    padding: 0 4px;             /* Less horizontal padding for mobile */
+    max-width: 100%;                /* Use full width on mobile */
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+    margin-top: 0.5em;
+    text-align: center;
+  }
+  .hero-subheading {
+    font-size: 1rem;
+    margin-bottom: 0.7em;
+    text-align: center;
+    max-width: 100%;         /* Prevent overflow on mobile */
+    word-break: break-word;  /* Break long words if needed */
+    overflow-wrap: anywhere; /* Wrap text to avoid overflow */
+    padding: 0 4px;          /* Add a little horizontal padding */
+  }
+  .hero-content p {
+    font-size: 1rem;
+    max-width: 100%;
+    margin-bottom: 0.7em;
+    text-align: center;
+  }
+  .timeline {
+    flex-direction: column;
+    gap: 18px;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding: 14px 2px;
+    max-width: 100vw;
+    width: 100%;
+  }
+  .card {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    flex: none;
+    padding: 12px 2px 8px 2px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    border: 1.5px solid #0068b5;
+  }
+  .card-img {
+    width: 100%;
+    height: 120px; /* Make images taller in vertical view */
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 10px;
+    border: none;
+  }
+}
+
+/* ========== Timeline Note ========== */
+.timeline-note {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  margin: 18px auto 32px auto;
+  max-width: 700px;
+}
+/* ========== Timeline Note ========== */
+.timeline-note {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  margin: 18px auto 32px auto;
+  max-width: 700px;
+}

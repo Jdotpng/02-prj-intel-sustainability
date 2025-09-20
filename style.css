@@ -212,107 +212,272 @@ body {
   border-radius: 12px 12px 0 0;
 }
 
-/* Responsive Design */
+/* ===== Intel Modern Timeline Styles ===== */
+.intel-timeline-section {
+  background: #f8f9fa; /* Light gray background for contrast */
+}
+
+.intel-timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 40px 0;
+  max-width: 900px;
+}
+
+.intel-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #0068b5; /* Intel blue */
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.intel-timeline-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.intel-timeline-item.left {
+  flex-direction: row;
+}
+
+.intel-timeline-item.right {
+  flex-direction: row-reverse;
+}
+
+.intel-timeline-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px 24px 28px;
+  box-shadow: 0 2px 16px rgba(0,104,181,0.08);
+  max-width: 370px;
+  width: 100%;
+  margin: 0 32px;
+  border: 1.5px solid #e3eaf3;
+  position: relative;
+  z-index: 2;
+}
+
+.intel-timeline-title {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0068b5;
+  margin-bottom: 0.5em;
+}
+
+.intel-timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 4px solid #0068b5;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0,104,181,0.10);
+}
+
+/* Responsive adjustments */
 @media (max-width: 900px) {
-  .card {
-    max-width: 220px;
-    min-width: 160px;
-    flex: 0 0 calc((100% - 3 * 20px) / 4);
+  .intel-timeline-content {
+    max-width: 95vw;
+    margin: 0 12px;
+    padding: 24px 12px 18px 12px;
   }
-  .timeline {
-    width: 100%;
-    padding: 20px 10px 20px 10px;
-    gap: 20px;
+  .intel-timeline {
+    padding: 20px 0;
   }
 }
 
 @media (max-width: 700px) {
-  /* Fix hero section for mobile */
-  .hero {
-    flex-direction: column;
-    align-items: center;
+  .card,
+  .intel-timeline-content,
+  .intel-subscribe-box {
+    box-shadow: 0 1px 4px rgba(0,104,181,0.08);
+    padding: 12px 6px;
+  }
+  .intel-subscribe-section .container {
+    min-height: 220px;
+    padding: 0 8px;
+  }
+  .intel-subscribe-box {
+    max-width: 98vw;
+  }
+  .intel-timeline::before {
+    left: 16px;
+    transform: none;
+  }
+  .intel-timeline-item,
+  .intel-timeline-item.left,
+  .intel-timeline-item.right {
+    flex-direction: row;
     justify-content: flex-start;
-    padding: 18px 6px 10px 6px; /* Reduce and balance padding for mobile */
-    position: relative;
-    min-height: unset;
-    border: none;               /* Remove any border for mobile */
-    box-shadow: none;           /* Remove any shadow for mobile */
+    align-items: flex-start;
   }
-  nav .logo {
-    position: static;               /* Remove absolute positioning */
-    display: block;                 /* Make logo a block element */
-    margin: 0 auto 12px auto;       /* Center logo and add space below */
-    width: 70px;                    /* Smaller logo for mobile */
-    max-width: 100vw;
-    z-index: 1;
-  }
-  .hero-content {
-    margin-top: 0;                  /* No extra margin needed */
-    padding: 0 4px;             /* Less horizontal padding for mobile */
-    max-width: 100%;                /* Use full width on mobile */
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-    margin-top: 0.5em;
-    text-align: center;
-  }
-  .hero-subheading {
-    font-size: 1rem;
-    margin-bottom: 0.7em;
-    text-align: center;
-    max-width: 100%;         /* Prevent overflow on mobile */
-    word-break: break-word;  /* Break long words if needed */
-    overflow-wrap: anywhere; /* Wrap text to avoid overflow */
-    padding: 0 4px;          /* Add a little horizontal padding */
-  }
-  .hero-content p {
-    font-size: 1rem;
+  .intel-timeline-content {
+    margin: 0 0 0 36px;
     max-width: 100%;
-    margin-bottom: 0.7em;
-    text-align: center;
-  }
-  .timeline {
-    flex-direction: column;
-    gap: 18px;
-    overflow-x: visible;
-    overflow-y: visible;
-    padding: 14px 2px;
-    max-width: 100vw;
-    width: 100%;
-  }
-  .card {
     min-width: 0;
-    max-width: 100%;
-    width: 100%;
-    flex: none;
-    padding: 12px 2px 8px 2px;
-    margin-bottom: 14px;
-    border-radius: 14px;
-    border: 1.5px solid #0068b5;
+    padding: 18px 10px 14px 10px;
   }
-  .card-img {
-    width: 100%;
-    height: 120px; /* Make images taller in vertical view */
-    border-radius: 12px 12px 0 0;
-    margin-bottom: 10px;
-    border: none;
+  .intel-timeline-item::before {
+    left: 16px;
+    transform: none;
   }
 }
 
-/* ========== Timeline Note ========== */
-.timeline-note {
-  text-align: center;
-  color: #666;
-  font-size: 1rem;
-  margin: 18px auto 32px auto;
-  max-width: 700px;
+/* RTL support */
+html[dir="rtl"] .intel-timeline::before {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
 }
-/* ========== Timeline Note ========== */
-.timeline-note {
-  text-align: center;
-  color: #666;
-  font-size: 1rem;
-  margin: 18px auto 32px auto;
-  max-width: 700px;
+html[dir="rtl"] .intel-timeline-item.left,
+html[dir="rtl"] .intel-timeline-item.right {
+  flex-direction: row-reverse;
 }
+html[dir="rtl"] .intel-timeline-content {
+  margin: 0 32px 0 0;
+}
+@media (max-width: 700px) {
+  html[dir="rtl"] .intel-timeline::before {
+    right: 16px;
+    left: auto;
+    transform: none;
+  }
+  html[dir="rtl"] .intel-timeline-content {
+    margin: 0 0 0 36px;
+  }
+  html[dir="rtl"] .intel-timeline-item::before {
+    right: 16px;
+    left: auto;
+    transform: none;
+  }
+}
+
+/* Improve contrast for card headings and text */
+.card h2,
+.card h3,
+.card p {
+  color: #fff !important; /* Ensure white text for contrast on blue backgrounds */
+}
+
+/* Improve contrast for 3-column section headings and text */
+section .container .row h2 span {
+  font-weight: bold;
+}
+
+/* Ensure buttons have sufficient contrast */
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-info {
+  background-color: #fff;
+  font-weight: 600;
+}
+
+/* Intel-themed subscribe section */
+.intel-subscribe-section {
+  background: #f8f9fa;
+}
+
+.intel-subscribe-section .container {
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intel-subscribe-box {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #e3eaf3;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,104,181,0.08);
+}
+
+/* GenZ Intel-style subscribe button */
+.intel-subscribe-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #00c6fb 0%, #0068b5 100%);
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 0.9em 0;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 16px rgba(0,104,181,0.13), 0 1.5px 0 #fff inset;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+  margin-top: 10px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.intel-subscribe-btn:focus,
+.intel-subscribe-btn:hover {
+  background: linear-gradient(90deg, #0068b5 0%, #00c6fb 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(0,104,181,0.18), 0 1.5px 0 #fff inset;
+  transform: translateY(-2px) scale(1.03);
+  text-decoration: none;
+}
+
+.intel-subscribe-btn::after {
+  /* Subtle animated shine effect for GenZ vibe */
+  content: "";
+  position: absolute;
+  left: -75%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.01) 100%);
+  transform: skewX(-18deg);
+  transition: left 0.4s;
+  pointer-events: none;
+}
+
+.intel-subscribe-btn:hover::after,
+.intel-subscribe-btn:focus::after {
+  left: 110%;
+  transition: left 0.4s;
+}
+
+/* Responsive: keep button readable and prominent on mobile */
+@media (max-width: 500px) {
+  .intel-subscribe-btn {
+    font-size: 1rem;
+    padding: 0.75em 0;
+  }
+}
+
+/* Make font sizes responsive */
+html {
+  font-size: 16px;
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 15px;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
 }
